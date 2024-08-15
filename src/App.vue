@@ -7,13 +7,16 @@
       <div
         class="flex justify-between items-center py-4 px-8 w-full max-w-screen-xl mx-auto"
       >
-        <img :src="logo" alt="Logo" class="h-14 lg:h-20" />
-        <h4
-          class="text-white text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
-        >
-          <span class="text-white">Kapsalon</span>
-          <span class="text-gold">TND3</span>
-        </h4>
+        <div class="flex justify-between items-center">
+          <img :src="logo" alt="Logo" class="h-14 lg:h-20" />
+          <h4
+            class="text-white text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
+          >
+            <span class="text-white">Kapsalon</span>
+            <span class="text-[#ebc863]">TND3</span>
+          </h4>
+        </div>
+
         <!-- Mobile Menu Button -->
         <button
           class="lg:hidden text-gold text-3xl focus:outline-none"
@@ -154,7 +157,7 @@
         <h1
           class="text-white text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
         >
-          Welkom bij <span class="text-gold">Kapsalontnd3</span>
+          Welkom bij <span class="text-gold">KapsalonTND3</span>
         </h1>
         <p
           class="text-gold text-xl md:text-2xl lg:text-3xl mt-4 font-light tracking-wider drop-shadow-md"
