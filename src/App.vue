@@ -8,6 +8,12 @@
         class="flex justify-between items-center py-4 px-8 w-full max-w-screen-xl mx-auto"
       >
         <img :src="logo" alt="Logo" class="h-14 lg:h-20" />
+        <h4
+          class="text-white text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
+        >
+          <span class="text-white">Kapsalon</span>
+          <span class="text-gold">TND3</span>
+        </h4>
         <!-- Mobile Menu Button -->
         <button
           class="lg:hidden text-gold text-3xl focus:outline-none"
