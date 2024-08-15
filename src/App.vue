@@ -593,7 +593,11 @@
         data-aos="fade-up"
       >
         <h3 class="text-gold text-4xl md:text-5xl font-bold mb-12">Contact</h3>
-        <form class="max-w-3xl mx-auto space-y-8" data-aos="fade-up">
+        <form
+          @submit="sendEmail"
+          class="max-w-3xl mx-auto space-y-8"
+          data-aos="fade-up"
+        >
           <div class="relative">
             <label
               for="name"
@@ -603,7 +607,9 @@
             <input
               type="text"
               id="name"
+              name="from_name"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
+              required
             />
           </div>
           <div class="relative">
@@ -615,7 +621,23 @@
             <input
               type="email"
               id="email"
+              name="from_email"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
+              required
+            />
+          </div>
+          <div class="relative">
+            <label
+              for="phone"
+              class="absolute text-gold left-4 top-2 transition-all transform scale-75 -translate-y-6 origin-top-left"
+              >Telefoonnummer</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
+              required
             />
           </div>
           <div class="relative">
@@ -626,11 +648,14 @@
             >
             <textarea
               id="message"
+              name="message"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
               rows="5"
+              required
             ></textarea>
           </div>
           <button
+            type="submit"
             class="w-full py-4 bg-gold text-dark font-bold rounded-full hover:bg-white hover:text-dark transition-colors duration-300 shadow-lg"
           >
             Verstuur Bericht
@@ -722,7 +747,7 @@ import { faClock, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import VueCarousel from "vue-carousel";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import emailjs from "emailjs-com";
 // Add icons to the library
 library.add(faFacebookF, faInstagram, faTwitter, faClock, faBars, faTimes);
 
@@ -759,6 +784,26 @@ export default {
     scrollToSection(sectionId) {
       const section = document.querySelector(sectionId);
       section.scrollIntoView({ behavior: "smooth" });
+    },
+    sendEmail(event) {
+      event.preventDefault();
+      emailjs
+        .sendForm(
+          "service_svjolk5",
+          "template_u5riczu",
+          event.target,
+          "eVnvH4XFvBUET0UXJ"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+            alert("Message Sent Successfully!");
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+            alert("Message Failed to Send!");
+          }
+        );
     },
   },
   mounted() {
