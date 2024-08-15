@@ -469,6 +469,42 @@
       </div>
     </section>
 
+    <section id="salon" class="min-h-screen py-24 w-full bg-black">
+      <div class="w-full px-8 max-w-screen-xl mx-auto">
+        <h2
+          class="text-white text-4xl md:text-5xl font-bold text-center mb-16"
+          data-aos="fade-up"
+        >
+          <span class="text-gold"> Welkom </span>
+          bij onze salon
+        </h2>
+        <swiper
+          :slides-per-view="1"
+          :space-between="30"
+          :pagination="{ clickable: true }"
+          loop
+          autoplay
+          effect="coverflow"
+          :coverflow-effect="{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }"
+          style="height: 600px"
+        >
+          <swiper-slide v-for="(image, index) in salonImages" :key="index">
+            <img
+              :src="image"
+              alt="Salon Image"
+              class="rounded-lg shadow-lg w-full h-full object-cover"
+            />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+
     <!-- Availability Section -->
     <section class="min-h-screen py-24 w-full bg-dark">
       <div
@@ -560,41 +596,6 @@
         >
           Maak Een Afspraak
         </button>
-      </div>
-    </section>
-
-    <section id="salon" class="min-h-screen py-24 w-full bg-black">
-      <div class="w-full px-8 max-w-screen-xl mx-auto">
-        <h2
-          class="text-gold text-4xl md:text-5xl font-bold text-center mb-16"
-          data-aos="fade-up"
-        >
-          Salon Impressions
-        </h2>
-        <swiper
-          :slides-per-view="1"
-          :space-between="30"
-          :pagination="{ clickable: true }"
-          loop
-          autoplay
-          effect="coverflow"
-          :coverflow-effect="{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }"
-          style="height: 600px"
-        >
-          <swiper-slide v-for="(image, index) in salonImages" :key="index">
-            <img
-              :src="image"
-              alt="Salon Image"
-              class="rounded-lg shadow-lg w-full h-full object-cover"
-            />
-          </swiper-slide>
-        </swiper>
       </div>
     </section>
 
