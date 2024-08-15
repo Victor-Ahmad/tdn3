@@ -7,7 +7,7 @@
       <div
         class="flex justify-between items-center py-4 px-8 w-full max-w-screen-xl mx-auto"
       >
-        <img :src="logo" alt="Logo" class="h-12" />
+        <img :src="logo" alt="Logo" class="h-14 lg:h-20" />
         <!-- Mobile Menu Button -->
         <button
           class="lg:hidden text-gold text-3xl focus:outline-none"
@@ -130,11 +130,11 @@
       class="min-h-screen w-full flex items-center justify-center relative overflow-hidden"
     >
       <div
-        class="absolute inset-0 bg-cover bg-center animate-fade"
+        class="absolute inset-0 bg-cover bg-center lg:bg-fixed animate-fade section-background"
         :style="{ backgroundImage: `url(${hero1})` }"
       ></div>
       <div
-        class="absolute inset-0 bg-cover bg-center animate-fade"
+        class="absolute inset-0 bg-cover bg-center lg:bg-fixed animate-fade section-background"
         :style="{ backgroundImage: `url(${hero2})`, animationDelay: '5s' }"
       ></div>
       <div
@@ -300,7 +300,7 @@
       class="min-h-screen py-24 w-full relative overflow-hidden"
     >
       <div
-        class="absolute inset-0 bg-cover bg-fixed bg-center"
+        class="absolute inset-0 bg-cover bg-fixed bg-center section-background"
         :style="{ backgroundImage: `url(${hero1})` }"
       ></div>
       <div class="absolute inset-0 bg-black opacity-70"></div>
@@ -461,79 +461,87 @@
     </section>
 
     <!-- Availability Section -->
-    <!-- Availability Section -->
     <section class="min-h-screen py-24 w-full bg-dark">
       <div
-        class="text-center w-full px-8 max-w-screen-xl mx-auto"
+        class="flex flex-col items-center justify-center w-full px-8 max-w-screen-xl mx-auto"
         data-aos="fade-up"
       >
         <h3 class="text-gold text-4xl md:text-5xl font-bold mb-8">
           Openingstijden
         </h3>
-        <p
-          class="text-white text-lg md:text-2xl mb-4 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Ma: 9:00 - 18:00
-        </p>
-        <p
-          class="text-white text-lg md:text-2xl mb-4 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Di: 9:00 - 19:00
-        </p>
-        <p
-          class="text-white text-lg md:text-2xl mb-4 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Wo: 9:00 - 19:00
-        </p>
-        <p
-          class="text-white text-lg md:text-2xl mb-4 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Do: 9:00 - 19:00
-        </p>
-        <p
-          class="text-white text-lg md:text-2xl mb-4 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Vr: 9:00 - 19:00
-        </p>
-        <p
-          class="text-white text-lg md:text-2xl mb-4 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Za: 9:00 - 20:00
-        </p>
-        <p
-          class="text-white text-lg md:text-2xl mb-12 flex items-center justify-center"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'clock']"
-            class="text-gold mr-4"
-          ></font-awesome-icon>
-          Zo: 9:00 - 18:00
-        </p>
-        <p class="text-white text-base md:text-xl mb-8">
+        <div class="w-full md:w-2/3 lg:w-1/3 space-y-4">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Ma:</span>
+            </div>
+            <span>9:00 - 18:00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Di:</span>
+            </div>
+            <span>9:00 - 19:00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Wo:</span>
+            </div>
+            <span>9:00 - 19:00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Do:</span>
+            </div>
+            <span>9:00 - 19:00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Vr:</span>
+            </div>
+            <span>9:00 - 19:00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Za:</span>
+            </div>
+            <span>9:00 - 20:00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <font-awesome-icon
+                :icon="['fas', 'clock']"
+                class="text-gold mr-4"
+              ></font-awesome-icon>
+              <span>Zo:</span>
+            </div>
+            <span>9:00 - 18:00</span>
+          </div>
+        </div>
+        <p class="text-white text-base md:text-xl mb-8 mt-12 text-center">
           Binnenlopen is mogelijk! We streven ernaar om al onze klanten te
           ontvangen, met of zonder afspraak.
         </p>
@@ -552,7 +560,7 @@
       class="min-h-screen py-24 w-full bg-black relative flex items-center justify-center"
     >
       <div
-        class="absolute inset-0 bg-cover bg-center"
+        class="absolute inset-0 bg-cover bg-center section-background"
         :style="{ backgroundImage: `url(${about1})`, opacity: 0.2 }"
       ></div>
       <div class="relative w-full px-8 max-w-screen-lg mx-auto text-center">
@@ -584,7 +592,7 @@
       class="min-h-screen py-24 w-full bg-black relative overflow-hidden"
     >
       <div
-        class="absolute inset-0 bg-cover bg-fixed bg-center"
+        class="absolute inset-0 bg-cover bg-fixed bg-center section-background"
         :style="{ backgroundImage: `url(${contactUs})` }"
       ></div>
       <div class="absolute inset-0 bg-black opacity-70"></div>
@@ -722,15 +730,15 @@
 import logo from "./assets/image/logo.png";
 import hero1 from "./assets/image/hero_1.jpeg";
 import hero2 from "./assets/image/Hero_2.jpeg";
-import service1 from "./assets/image/service_1.jpeg";
-import service2 from "./assets/image/service_2.jpeg";
-import service3 from "./assets/image/service_3.jpeg";
-import service4 from "./assets/image/service_4.jpeg";
-import haircut1 from "./assets/image/haircut_1.jpeg";
-import haircut2 from "./assets/image/haircut_2.jpeg";
-import haircut3 from "./assets/image/haircut_3.jpeg";
-import haircut4 from "./assets/image/haircut_4.jpeg";
-import haircut5 from "./assets/image/haircut_5.jpeg";
+import service1 from "./assets/image/haircuts/men/1.jpeg";
+import service2 from "./assets/image/haircuts/men/2.jpeg";
+import service3 from "./assets/image/haircuts/women/1.jpeg";
+import service4 from "./assets/image/haircuts/women/2.jpeg";
+import haircut1 from "./assets/image/haircuts/men/3.jpeg";
+import haircut2 from "./assets/image/haircuts/men/4.jpeg";
+import haircut3 from "./assets/image/haircuts/women/3.jpeg";
+import haircut4 from "./assets/image/haircuts/women/4.jpeg";
+import haircut5 from "./assets/image/haircuts/women/5.jpeg";
 import about1 from "./assets/image/about_1.jpeg";
 import about2 from "./assets/image/about_2.jpeg";
 import contactUs from "./assets/image/contact_us.jpeg";
@@ -832,6 +840,12 @@ export default {
 
 .bg-fixed {
   background-attachment: fixed;
+}
+
+.section-background {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 header {
