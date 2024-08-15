@@ -8,7 +8,7 @@
         class="flex justify-between items-center py-4 px-8 w-full max-w-screen-xl mx-auto"
       >
         <div class="flex justify-between items-center">
-          <img :src="logo" alt="Logo" class="h-14 lg:h-20" />
+          <img :src="logo" alt="Logo" class="h- lg:h-20" />
           <h4
             class="text-white text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
           >
@@ -563,6 +563,41 @@
       </div>
     </section>
 
+    <section id="salon" class="min-h-screen py-24 w-full bg-black">
+      <div class="w-full px-8 max-w-screen-xl mx-auto">
+        <h2
+          class="text-gold text-4xl md:text-5xl font-bold text-center mb-16"
+          data-aos="fade-up"
+        >
+          Salon Impressions
+        </h2>
+        <swiper
+          :slides-per-view="1"
+          :space-between="30"
+          :pagination="{ clickable: true }"
+          loop
+          autoplay
+          effect="coverflow"
+          :coverflow-effect="{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }"
+          style="height: 600px"
+        >
+          <swiper-slide v-for="(image, index) in salonImages" :key="index">
+            <img
+              :src="image"
+              alt="Salon Image"
+              class="rounded-lg shadow-lg w-full h-full object-cover"
+            />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+
     <!-- About Us Section -->
     <section
       id="about"
@@ -751,6 +786,18 @@ import haircut5 from "./assets/image/haircuts/women/5.jpeg";
 import about1 from "./assets/image/about_1.jpeg";
 import about2 from "./assets/image/about_2.jpeg";
 import contactUs from "./assets/image/contact_us.jpeg";
+import salonImage1 from "./assets/image/salon/1.jpeg";
+import salonImage2 from "./assets/image/salon/2.jpeg";
+import salonImage3 from "./assets/image/salon/3.jpeg";
+import salonImage4 from "./assets/image/salon/4.jpeg";
+import salonImage5 from "./assets/image/salon/5.jpeg";
+import salonImage6 from "./assets/image/salon/6.jpeg";
+import salonImage7 from "./assets/image/salon/7.jpeg";
+import salonImage8 from "./assets/image/salon/8.jpeg";
+import salonImage9 from "./assets/image/salon/9.jpeg";
+import salonImage10 from "./assets/image/salon/10.jpeg";
+import salonImage11 from "./assets/image/salon/11.jpeg";
+import salonImage12 from "./assets/image/salon/12.jpeg";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -765,6 +812,12 @@ import VueCarousel from "vue-carousel";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import emailjs from "emailjs-com";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
+
 // Add icons to the library
 library.add(faFacebookF, faInstagram, faTwitter, faClock, faBars, faTimes);
 
@@ -773,6 +826,8 @@ export default {
   components: {
     FontAwesomeIcon, // Register the FontAwesomeIcon component
     VueCarousel,
+    Swiper,
+    SwiperSlide,
   },
   data() {
     return {
@@ -792,6 +847,20 @@ export default {
       about1,
       about2,
       contactUs,
+      salonImages: [
+        salonImage1,
+        salonImage2,
+        salonImage3,
+        salonImage4,
+        salonImage5,
+        salonImage6,
+        salonImage7,
+        salonImage8,
+        salonImage9,
+        salonImage10,
+        salonImage11,
+        salonImage12,
+      ],
     };
   },
   methods: {
