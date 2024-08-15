@@ -8,7 +8,7 @@
         class="flex justify-between items-center py-4 px-8 w-full max-w-screen-xl mx-auto"
       >
         <div class="flex justify-between items-center">
-          <img :src="logo" alt="Logo" class="h- lg:h-20" />
+          <img :src="logo" alt="Logo" class="h-20 lg:h-20" />
           <h4
             class="text-white text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
           >
