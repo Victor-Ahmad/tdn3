@@ -75,7 +75,7 @@
                 ></font-awesome-icon>
               </a>
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/mohammad_abojaad"
                 target="_blank"
                 class="hover:text-white transition-colors duration-300"
               >
