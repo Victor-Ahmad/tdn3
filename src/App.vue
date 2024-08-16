@@ -234,69 +234,64 @@
         >
           Kapsels
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="relative group" data-aos="fade-up">
-            <img
-              :src="haircut1"
-              alt="Haircut 1"
-              class="rounded-lg shadow-lg object-cover w-full h-64"
-            />
-            <div
-              class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Men's Haircuts Column -->
+          <div>
+            <h3
+              class="text-white text-3xl md:text-4xl font-bold text-center mb-12"
             >
-              <p class="text-gold text-lg md:text-xl font-bold">Korte Coupe</p>
+              Heren Kapsels
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div
+                class="relative group hover-scale border-4 border-dark rounded-xl"
+                data-aos="fade-up"
+                v-for="(haircut, index) in menHaircuts"
+                :key="index"
+              >
+                <img
+                  :src="haircut.src"
+                  :alt="'Heren Kapsel ' + (index + 1)"
+                  class="rounded-lg shadow-lg object-cover w-full h-64"
+                />
+                <!-- <div
+                  class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
+                >
+                  <p class="text-gold text-lg md:text-xl font-bold">
+                    Heren Kapsel {{ index + 1 }}
+                  </p>
+                </div> -->
+              </div>
             </div>
           </div>
-          <div class="relative group" data-aos="fade-up">
-            <img
-              :src="haircut2"
-              alt="Haircut 2"
-              class="rounded-lg shadow-lg object-cover w-full h-64"
-            />
-            <div
-              class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
+
+          <!-- Women's Haircuts Column -->
+          <div>
+            <h3
+              class="text-white text-3xl md:text-4xl font-bold text-center mb-12"
             >
-              <p class="text-gold text-lg md:text-xl font-bold">
-                Klassieke Coupe
-              </p>
-            </div>
-          </div>
-          <div class="relative group" data-aos="fade-up">
-            <img
-              :src="haircut3"
-              alt="Haircut 3"
-              class="rounded-lg shadow-lg object-cover w-full h-64"
-            />
-            <div
-              class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
-            >
-              <p class="text-gold text-lg md:text-xl font-bold">Baard Trim</p>
-            </div>
-          </div>
-          <div class="relative group" data-aos="fade-up">
-            <img
-              :src="haircut4"
-              alt="Haircut 4"
-              class="rounded-lg shadow-lg object-cover w-full h-64"
-            />
-            <div
-              class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
-            >
-              <p class="text-gold text-lg md:text-xl font-bold">
-                Warme Handdoek Scheerbeurt
-              </p>
-            </div>
-          </div>
-          <div class="relative group" data-aos="fade-up">
-            <img
-              :src="haircut5"
-              alt="Haircut 5"
-              class="rounded-lg shadow-lg object-cover w-full h-64"
-            />
-            <div
-              class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
-            >
-              <p class="text-gold text-lg md:text-xl font-bold">Haar Kleuren</p>
+              Dames Kapsels
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div
+                class="relative group hover-scale border-4 border-dark rounded-xl"
+                data-aos="fade-up"
+                v-for="(haircut, index) in womenHaircuts"
+                :key="index"
+              >
+                <img
+                  :src="haircut.src"
+                  :alt="'Dames Kapsel ' + (index + 1)"
+                  class="rounded-lg shadow-lg object-cover w-full h-64"
+                />
+                <!-- <div
+                  class="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg"
+                >
+                  <p class="text-gold text-lg md:text-xl font-bold">
+                    Dames Kapsel {{ index + 1 }}
+                  </p>
+                </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -478,19 +473,24 @@
           <span class="text-gold"> Welkom </span>
           bij onze salon
         </h2>
+
         <swiper
+          :modules="modules"
+          :grabCursor="true"
           :slides-per-view="1"
           :space-between="30"
           :pagination="{ clickable: true }"
           loop
-          autoplay
-          effect="coverflow"
-          :coverflow-effect="{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
+          :autoplay="{ delay: 5000, disableOnInteraction: false }"
+          :effect="'creative'"
+          :creativeEffect="{
+            prev: {
+              shadow: true,
+              translate: ['-20%', 0, -1],
+            },
+            next: {
+              translate: ['100%', 0, 0],
+            },
           }"
           style="height: 600px"
         >
@@ -661,6 +661,7 @@
               type="text"
               id="name"
               name="from_name"
+              v-model="formData.from_name"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
               required
             />
@@ -675,6 +676,7 @@
               type="email"
               id="email"
               name="from_email"
+              v-model="formData.from_email"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
               required
             />
@@ -689,6 +691,7 @@
               type="tel"
               id="phone"
               name="phone"
+              v-model="formData.phone"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
               required
             />
@@ -702,6 +705,7 @@
             <textarea
               id="message"
               name="message"
+              v-model="formData.message"
               class="w-full py-4 px-8 bg-black text-white rounded border border-gold focus:outline-none"
               rows="5"
               required
@@ -800,6 +804,27 @@ import salonImage10 from "./assets/image/salon/10.jpeg";
 import salonImage11 from "./assets/image/salon/11.jpeg";
 import salonImage12 from "./assets/image/salon/12.jpeg";
 
+import haircut6 from "./assets/image/haircuts/men/6.jpeg";
+import haircut7 from "./assets/image/haircuts/men/7.jpeg";
+import haircut8 from "./assets/image/haircuts/men/8.jpeg";
+import haircut9 from "./assets/image/haircuts/men/9.jpeg";
+import haircut10 from "./assets/image/haircuts/men/10.jpeg";
+import haircut11 from "./assets/image/haircuts/men/11.jpeg";
+import haircut12 from "./assets/image/haircuts/men/12.jpeg";
+import haircut13 from "./assets/image/haircuts/men/13.jpeg";
+import haircut14 from "./assets/image/haircuts/men/14.jpeg";
+
+import haircut15 from "./assets/image/haircuts/women/6.jpeg";
+import haircut16 from "./assets/image/haircuts/women/7.jpeg";
+import haircut17 from "./assets/image/haircuts/women/8.jpeg";
+import haircut18 from "./assets/image/haircuts/women/9.jpeg";
+import haircut19 from "./assets/image/haircuts/women/10.jpeg";
+import haircut20 from "./assets/image/haircuts/women/11.jpeg";
+import haircut21 from "./assets/image/haircuts/women/12.jpeg";
+import haircut22 from "./assets/image/haircuts/women/13.jpeg";
+
+import Swal from "sweetalert2"; // Import SweetAlert2
+
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -814,10 +839,25 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import emailjs from "emailjs-com";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/swiper-bundle.css";
+import {
+  Autoplay,
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  EffectFlip,
+  EffectCube,
+  EffectFade,
+  EffectCreative,
+} from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
+import "swiper/css/effect-flip";
+import "swiper/css/effect-cube";
+import "swiper/css/effect-fade";
 
 // Add icons to the library
 library.add(faFacebookF, faInstagram, faTwitter, faClock, faBars, faTimes);
@@ -829,6 +869,20 @@ export default {
     VueCarousel,
     Swiper,
     SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [
+        Autoplay,
+        EffectCoverflow,
+        Pagination,
+        Navigation,
+        EffectFlip,
+        EffectCube,
+        EffectFade,
+        EffectCreative,
+      ],
+    };
   },
   data() {
     return {
@@ -845,6 +899,51 @@ export default {
       haircut3,
       haircut4,
       haircut5,
+      haircut6,
+      haircut7,
+      haircut8,
+      haircut9,
+      haircut10,
+      haircut11,
+      haircut12,
+      haircut13,
+      haircut14,
+      haircut15,
+      haircut16,
+      haircut17,
+      haircut18,
+      haircut19,
+      haircut20,
+      haircut21,
+      haircut22,
+
+      // activeTab: "men",
+      menHaircuts: [
+        { src: haircut1 },
+        { src: haircut2 },
+        { src: haircut6 },
+        { src: haircut7 },
+        { src: haircut8 },
+        { src: haircut9 },
+        { src: haircut10 },
+        { src: haircut11 },
+        // { src: haircut12 },
+        { src: haircut13 },
+        { src: haircut14 },
+      ],
+      womenHaircuts: [
+        { src: haircut3 },
+        { src: haircut4 },
+        { src: haircut5 },
+        { src: haircut15 },
+        { src: haircut16 },
+        { src: haircut17 },
+        { src: haircut18 },
+        // { src: haircut19 },
+        { src: haircut20 },
+        { src: haircut21 },
+        { src: haircut22 },
+      ],
       about1,
       about2,
       contactUs,
@@ -862,6 +961,13 @@ export default {
         salonImage11,
         salonImage12,
       ],
+      // Add form data properties
+      formData: {
+        from_name: "",
+        from_email: "",
+        phone: "",
+        message: "",
+      },
     };
   },
   methods: {
@@ -884,11 +990,31 @@ export default {
         .then(
           (result) => {
             console.log("SUCCESS!", result.text);
-            alert("Message Sent Successfully!");
+
+            // Show success popup
+            Swal.fire({
+              icon: "success",
+              title: "Bericht Verstuurd!",
+              text: "Uw bericht is succesvol verstuurd. We zullen spoedig contact met u opnemen.",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+
+            // Clear the form data
+            this.formData.from_name = "";
+            this.formData.from_email = "";
+            this.formData.phone = "";
+            this.formData.message = "";
           },
           (error) => {
             console.log("FAILED...", error.text);
-            alert("Message Failed to Send!");
+
+            // Show error popup
+            Swal.fire({
+              icon: "error",
+              title: "Bericht Mislukt",
+              text: "Er is iets misgegaan. Probeer het alstublieft opnieuw.",
+            });
           }
         );
     },
@@ -929,5 +1055,13 @@ export default {
 
 header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hover-scale {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.1); /* Slightly scale the card */
+  border-color: #ebc863; /* Change the border color to gold */
 }
 </style>
