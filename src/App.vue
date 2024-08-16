@@ -177,7 +177,7 @@
           </div>
           <div class="flex flex-col items-center group" data-aos="fade-right">
             <img
-              :src="service2"
+              :src="haircut9"
               alt="Service 2"
               class="rounded-lg shadow-lg object-cover w-full h-48 border-4 border-dark group-hover:border-gold transition-all duration-300"
             />
@@ -189,9 +189,7 @@
               alt="Service 3"
               class="rounded-lg shadow-lg object-cover w-full h-48 border-4 border-dark group-hover:border-gold transition-all duration-300"
             />
-            <h3 class="text-lg md:text-xl text-gold mt-4">
-              Warme Handdoek Scheerbeurt
-            </h3>
+            <h3 class="text-lg md:text-xl text-gold mt-4">Stijlen</h3>
           </div>
           <div class="flex flex-col items-center group" data-aos="fade-left">
             <img
