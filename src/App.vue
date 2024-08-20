@@ -310,6 +310,18 @@
               <li
                 class="flex justify-between border-b border-gray-700 pb-2 hover:text-gold transition-colors duration-300"
               >
+                <span>Knippen overlappen</span>
+                <span>€15</span>
+              </li>
+              <li
+                class="flex justify-between border-b border-gray-700 pb-2 hover:text-gold transition-colors duration-300"
+              >
+                <span>Knippen met schaar</span>
+                <span>€20</span>
+              </li>
+              <li
+                class="flex justify-between border-b border-gray-700 pb-2 hover:text-gold transition-colors duration-300"
+              >
                 <span>Baard</span>
                 <span>€10</span>
               </li>
@@ -934,9 +946,6 @@ export default {
         salonImage6,
         salonImage7,
         salonImage8,
-        salonImage9,
-        salonImage10,
-        salonImage11,
         salonImage12,
       ],
       // Add form data properties
