@@ -793,6 +793,9 @@ import salonImage9 from "./assets/image/salon/9.jpeg";
 import salonImage10 from "./assets/image/salon/10.jpeg";
 import salonImage11 from "./assets/image/salon/11.jpeg";
 import salonImage12 from "./assets/image/salon/12.jpeg";
+import salonImage13 from "./assets/image/salon/13.jpeg";
+import salonImage14 from "./assets/image/salon/14.jpeg";
+import salonImage15 from "./assets/image/salon/15.jpeg";
 
 import haircut6 from "./assets/image/haircuts/men/6.jpeg";
 import haircut7 from "./assets/image/haircuts/men/7.jpeg";
@@ -947,6 +950,9 @@ export default {
         salonImage7,
         salonImage8,
         salonImage12,
+        salonImage13,
+        salonImage14,
+        salonImage15,
       ],
       // Add form data properties
       formData: {
