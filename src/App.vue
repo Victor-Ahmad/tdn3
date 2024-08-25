@@ -975,7 +975,7 @@ export default {
       event.preventDefault();
       emailjs
         .sendForm(
-          "service_svjolk5",
+          "service_l6es4g4",
           "template_u5riczu",
           event.target,
           "eVnvH4XFvBUET0UXJ"
